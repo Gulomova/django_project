@@ -2,6 +2,7 @@ Django==1.11
 gunicorn==20.0.4
 include==0.2.2
 invoke==1.0.0
+Pillow==5.4.1
 psycopg2==2.8.4
 pytz==2019.3
 sqlparse==0.3.0
