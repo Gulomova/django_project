@@ -1,0 +1,35 @@
+{% load static %}
+<html>
+    <head>
+        <title>Django Girls blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    </head>
+    <body>
+        <div class="page-header">
+            <div class="card">
+                <h1>User Profile</h1>
+                <p class="title">Bloger</p>
+                <div class="profile">
+                    <img src="https://html5book.ru/wp-content/uploads/2016/10/profile-image.png">
+                    <div class="media-body">
+                        <ul class="list-group">
+                            <p class="list-group-item"><b>First Name:</b> </p>
+                            <p class="list-group-item"><b>Last Name:</b> user1</p>
+                            <p class="list-group-item"><b>Email:</b> user_email</p>
+                            <p class="list-group-item"><b>About Me:</b> text</p>
+                            <p class="list-group-item"><b>Education:</b> text</p>
+                        </ul>
+<!--                        <li><a href="/user/login">Edit</a></li>-->
+<!--                        <li><p><button>Edit</button></p>-->
+                            <li><a href="user/edit">Edit</a></li>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

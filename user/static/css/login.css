@@ -1,0 +1,107 @@
+body .page-header {
+    font-family: 'Lobster', cursive;
+}
+
+.page-header {
+    background-color: #ff9400;
+    margin-top: 0;
+    padding: 50px 20px 20px 40px;
+}
+
+.card {
+    width: 240px;
+    float: left;
+    text-align: center;
+    padding: 30px;
+    color: #1e347b;
+}
+
+.right1 {
+    padding: 13px 30px;
+    margin: 5px 0 20px 0;
+    font-size: 15px;
+    color: #fff;
+    background-color: #2ca8c6;
+    border: none;
+    border-bottom: 4px solid #6ee9fd;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px 0;
+    border-width: 0;
+    display: block;
+    width: 120px;
+    margin: 25px auto 0;
+    background: #60e6c5;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    text-transform: uppercase;
+}
+
+.page-header {
+    background-color: #ff9400;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+
+.custom-green-button {
+    background: #44c767 linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+    border-radius: 28px;
+    border: 1px solid #18ab29;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial, serif;
+    font-size: 19px;
+    font-weight: bold;
+    padding: 10px 90px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+    text-transform: none;
+    width: auto;
+}
+
+.custom-green-button:hover {
+    background: #5cbf2a linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+}
+
+.custom-green-button:hover {
+    background: #5cbf2a linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+}
+
+.custom-green-button:active {
+    position: relative;
+    top: 1px;
+}
+
+.login-content {
+    text-align: center;
+
+}
+
+.content-login {
+    align-items: center;
+    width: 400px;
+    display: inline-block;
+
+}
+
+.registration {
+     text-align: center;
+}
+
+.content-registration {
+    align-items: center;
+    width: 400px;
+    display: inline-block;
+
+}
