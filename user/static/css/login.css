@@ -1,3 +1,9 @@
+.page-header {
+    background-color: #6f752e;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    display: flex;
+}
 body .page-header {
     font-family: 'Lobster', cursive;
 }
@@ -26,7 +32,6 @@ body .page-header {
     border-bottom: 4px solid #6ee9fd;
     cursor: pointer;
 }
-
 button {
     padding: 10px 0;
     border-width: 0;
@@ -103,5 +108,18 @@ button {
     align-items: center;
     width: 400px;
     display: inline-block;
+
+}
+
+.table table-th-block{
+    text-align: center;
+}
+
+.alert{
+    padding: 20px;
+  background-color: #60e6c5;
+  color: black;
+  margin-bottom: 15px;
+
 
 }

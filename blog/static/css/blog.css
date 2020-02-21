@@ -13,6 +13,7 @@
 
 .content {
     margin-left: 40px;
+
 }
 
 h1, h2, h3, h4 {
@@ -58,6 +59,7 @@ h1, h2, h3, h4 {
 
 .registration-form:hover {
     background: rgb(232, 95, 76);
+
 }
 
 /* при наведении курсора мышки */
