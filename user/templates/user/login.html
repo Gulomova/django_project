@@ -3,7 +3,8 @@
 {% block content %}
 <div class="login-content">
     <h1>Login to the system</h1>
-    <p>Please, use the following form to log-in:</p>
+
+    <p>Please,use the following form to log-in:</p>
     <form action="." method="post">
         <!--        {{ form.as_p }}-->
         {% csrf_token %}
@@ -29,7 +30,6 @@
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
             If nothing happens on the page, then you have entered invalid data.
         </div>
-
     </form>
 </div>
 {% endblock %}

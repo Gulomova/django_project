@@ -1,5 +1,6 @@
 from django.contrib import auth
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, render_to_response
 from django.contrib.auth.forms import UserCreationForm
 from django.template.context_processors import csrf
@@ -82,6 +83,21 @@ class UserUpdateAPIView(View):
         return render(request, 'user/edit_profile.html', {'user': request.user})
 
     def post(self, request):
+        user = request.user
+        form = User(request.POST or None)
+        if request.method == 'POST':
+            user.first_name = request.POST['first_name']
+            user.last_name = request.POST['last_name']
+            # user.email = request.POST['email']
+            # user.birth_data = request.POST['birth_data']
+            user.educations = request.POST['educations']
+            user.about_me = request.POST['about_me']
+            if request.method == 'POST':
+                user.save()
+            context = {
+                "form": form
+            }
+            return render(request, 'user/edit_profile.html', context)
         return render(request, 'user/edit_profile.html', {'user': request.user})
 
 
@@ -107,5 +123,3 @@ class UserRegisterAPIView(View):
                 return redirect(request, 'user/view_profile.html', {'user': request.user})
 
         return render(request, self.template_name)
-
-
