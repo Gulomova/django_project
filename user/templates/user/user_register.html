@@ -1,0 +1,75 @@
+{% extends "user/base.html" %}
+{% block title %}Registration{% endblock %}
+{% block content %}
+<div class="registration">
+
+    {% if messages %}
+      <ul class="list-group">
+      {% for message in messages %}
+        <p class="list-group-item list-group-item-success">
+        <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+          {{ message }}</p>
+      {% endfor %}
+      </ul>
+    {% endif %}
+
+    <div class="profile">
+        <img src="https://html5book.ru/wp-content/uploads/2016/10/profile-image.png">
+        <h1>Registration</h1>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+<!--        <div class="content-registration">-->
+<!--            <div class="form-group">-->
+<!--                <label for="username">Username</label>-->
+<!--                <input class="form-control"-->
+<!--                       id="username"-->
+<!--                       type="text"-->
+<!--                       name="last_name" required>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="first_name">First Name</label>-->
+<!--                <input id="first_name"-->
+<!--                       type="text"-->
+<!--                       class="form-control"-->
+<!--                       name="first_name" required>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="last_name">Last Name</label>-->
+<!--                <input class="form-control"-->
+<!--                       id="last_name"-->
+<!--                       type="text"-->
+<!--                       name="last_name" required>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="email">E-mail</label>-->
+<!--                <input class="form-control"-->
+<!--                       type="email"-->
+<!--                       id="email"-->
+<!--                       name="email" required>-->
+<!--            </div>-->
+
+<!--            <div class="form-group">-->
+<!--                <label for="password">Password</label>-->
+<!--                <input class="form-control"-->
+<!--                       id="password"-->
+<!--                       type="password"-->
+<!--                       name="password1" required>-->
+<!--            </div>-->
+
+<!--            <div class="form-group">-->
+<!--                <label for="password1">Repeat Password</label>-->
+<!--                <input class="form-control"-->
+<!--                       id="password1"-->
+<!--                       type="password"-->
+<!--                       name="password1" required>-->
+<!--            </div>-->
+<!--        </div>-->
+        <p>
+            <button class="custom-green-button" type="submit">Register</button>
+            <a class="custom-green-button" href="/">Cancel</a>
+        </p>
+    </form>
+</div>
+{% endblock %}

@@ -26,3 +26,13 @@ services:
     ports:
       - "9000:9000"
     command: /bin/bash -c "pip install --upgrade pip && pip install -r requirements.txt && exec invoke run"
+
+  selenium:
+    image: selenium/standalone-chrome-debug:3.141.59
+    ports:
+      - "5900:5900"
+    depends_on:
+      - django
+    volumes:
+      # https://bugs.chromium.org/p/chromium/issues/detail?id=519952#c8
+      - /dev/shm:/dev/shm

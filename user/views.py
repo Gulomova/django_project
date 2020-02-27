@@ -10,7 +10,8 @@ from django.views.generic import View
 from django.http import HttpResponse, HttpResponseRedirect
 
 import user
-from user.models import User, LoginForm
+from user.models import User
+from user.forms import LoginForm
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
@@ -37,6 +38,37 @@ def user_login(request):
         form = LoginForm()
     return render(request, 'user/login.html', {'form': form})
 
+
+from django.contrib import messages
+from user.forms import RegistrationForm
+def signup(request):
+    print("WWWWWWWWWWWWww")
+    print(request.method )
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        print(form)
+        print(form.is_valid())
+        print(form.is_bound)
+        print(form.errors)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            print(username)
+            password = form.cleaned_data.get('password')
+            print(password)
+            raw_password = form.cleaned_data.get('password1')
+            print(raw_password)
+            if password == raw_password:
+                form.save()
+                user = authenticate(username=username, password=raw_password)
+                login(request, user)
+                return redirect('user:get_user_info')
+            else:
+                messages.error(request, "Incorrect password.")
+        else:
+            messages.error(request, form.errors)
+    else:
+        form = RegistrationForm()
+    return render(request, 'user/user_register.html', {'form': form})
 
 # class MyRegisterFormView(FormView):
 #     form_class = UserCreationForm
@@ -101,25 +133,89 @@ class UserUpdateAPIView(View):
         return render(request, 'user/edit_profile.html', {'user': request.user})
 
 
-class UserRegisterAPIView(View):
-    def get(self, request):
-        return render(request, 'user/register.html')
 
-    # def post(self, request):
-    #     return render(request, 'user/register.html', {'user': request.user})
-    template_name = "user/register.html"
+# from django.views.generic.edit import CreateView
+#
+# from user.forms import RegistrationForm
+# class UserRegisterAPIView(CreateView):
+#     """
+#     Add new collector
+#     """
+#     model = User
+#     success_url = '/'
+#     form_class = RegistrationForm
+#     template_name_suffix = '_register'
+#
+#     # def get_context_data(self, **kwargs):
+#     #     """
+#     #     Extends context data
+#     #     :param kwargs:
+#     #     :return: context
+#     #     """
+#     #     context = super(UserRegisterAPIView, self).get_context_data(**kwargs)
+#     #     context['page_title'] = u'Создание нового коллекционера'
+#     #     return context
+#
+#     def form_valid(self, form):
+#         """
+#         The successful addition of new collector
+#         :param form:
+#         :return: message
+#         """
+#         message = super(UserRegisterAPIView, self).form_valid(form)
+#         mes = 'Register success.'
+#         messages.success(self.request, mes)
+#         return message
+#
+#     def post(self, request, *args, **kwargs):
+#         print("QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ")
+#         self.object = None
+#         form = self.get_form()
+#         print(form)
+#         print(form.is_valid())
+#         if form.is_valid():
+#             return self.form_valid(form)
+#         else:
+#             return self.form_invalid(form)
 
-    def dispatch(self, request, *args, **kwargs):
-        if request.method == 'POST':
-            username = request.POST.get('username')
-            first_name = request.POST.get('first_name')
-            last_name = request.POST.get('last_name')
-            email = request.POST.get('email')
-            password = request.POST.get('password')
-            password2 = request.POST.get('password2')
+# class UserRegisterAPIView(View):
+#     def get(self, request):
+#         return render(request, 'user/register.html')
+#
+#     # def post(self, request):
+#     #     return render(request, 'user/register.html', {'user': request.user})
+#     # template_name = "user/register.html"
+#     #
+#     # def post(self, request, *args, **kwargs):
+#     #     if request.method == 'POST':
+#     #         username = request.POST.get('username')
+#     #         first_name = request.POST.get('first_name')
+#     #         last_name = request.POST.get('last_name')
+#     #         email = request.POST.get('email')
+#     #         password = request.POST.get('password')
+#     #         password2 = request.POST.get('password2')
+#     #
+#     #         if password == password2:
+#     #             User.objects.create_user(username, email, password)
+#     #             return redirect(request, 'user/view_profile.html', {'user': request.user})
+#     #
+#     #     return render(request, self.template_name)
+#
+#     def post(self, request):
+#         form = User(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             user.refresh_from_db()
+#             user.profile.first_name = form.cleaned_data.get('first_name')
+#             user.profile.last_name = form.cleaned_data.get('last_name')
+#             user.profile.email = form.cleaned_data.get('email')
+#             user.save()
+#             username = form.cleaned_data.get('username')
+#             password = form.cleaned_data.get('password1')
+#             user = authenticate(username=username, password=password)
+#             login(request, user)
+#             return redirect('home')
+#         else:
+#             form = User()
+#         return render(request, 'signup.html', {'form': form})
 
-            if password == password2:
-                User.objects.create_user(username, email, password)
-                return redirect(request, 'user/view_profile.html', {'user': request.user})
-
-        return render(request, self.template_name)

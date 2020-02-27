@@ -1,30 +1,16 @@
 import unittest
+from selenium import webdriver
 from django.test import TestCase
-from user.models import User, LoginForm
-import calc
+from gunicorn.config import User
 
 
-class CalcTest(unittest.TestCase):
-    def test_add(self):
-        self.assertEqual(calc.add(1, 2), 3)
+class TestSuite(TestCase):
+    def setUp(self):  # вызывается ПЕРЕД каждым тестом.
+        self.user = User.objects.create_user(
+            username='fatima', password='nikitinoleg24335')
 
-    def test_sub(self):
-        self.assertEqual(calc.sub(4, 2), 2)
+    def test_user_can_login(self):
+        response = self.client.post("/login", {"username": "fatima", "password": "nikitinoleg24335"})
 
-    def test_mul(self):
-        self.assertEqual(calc.mul(2, 5), 10)
-
-    def test_div(self):
-        self.assertEqual(calc.div(8, 4), 2)
-
-
-if __name__ == '__main__':
-    unittest.main()
-
-
-
-
-
-
-
-
+    def tearDown(self):  # вызывается ПОСЛЕ каждого теста
+        pass

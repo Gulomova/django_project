@@ -27,7 +27,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('blog.urls')),
-    url(r'^user/', include('user.urls')),
+    url(r'^user/', include('user.urls', namespace="user")),
     # url(r'^user/login/view/', include('user.urls')),
     # url(r'^user/edit/', include('user.urls')),
 ]

@@ -9,6 +9,16 @@
      </div>
         <div class="content-registration">
             <div class="form-group">
+                <label for="username">Username</label>
+                <value id="username"
+                       value="{{ user.username }}"
+                       type="text"
+                       class="form-control"
+                       name="username" required>
+                {{ user.username }}
+                </value>
+            </div>
+            <div class="form-group">
                 <label for="first_name">First Name</label>
                 <value id="first_name"
                        value="{{ user.first_name }}"
