@@ -1,0 +1,69 @@
+{% extends "user/base.html" %}
+{% block title %}Edit_Profile{% endblock %}
+{% block content %}
+<div class="registration">
+    <div class="profile">
+        <img src="https://html5book.ru/wp-content/uploads/2016/10/profile-image.png">
+        <h1>Edit Profile</h1>
+    </div>
+    <form method="POST"  >
+        {% csrf_token %}
+        <div class="content-registration">
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input id="first_name"
+                       value="{{ user.first_name }}"
+                       type="text"
+                       class="form-control"
+                       name="first_name" required>
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input class="form-control"
+                       value="{{ user.last_name }}"
+                       id="last_name"
+                       type="text"
+                       name="last_name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input class="form-control"
+                       value="{{ user.email }}"
+                       type="email"
+                       id="email"
+                       name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="about_me">About Me</label>
+                <input class="form-control"
+                       value="{{ user.about_me }}"
+                       type="text"
+                       id="about_me"
+                       name="about_me" required>
+            </div>
+<!--            <div class="form-group">-->
+<!--                <label for="birth_data">Birth Data</label>-->
+<!--                <input class="form-control"-->
+<!--                       value="{{ user.birth_data }}"-->
+<!--                       type="date"-->
+<!--                       id="birth_data"-->
+<!--                       name="birth_data" required>-->
+<!--            </div>-->
+            <div class="form-group">
+                <label for="educations">Educations</label>
+                <input class="form-control"
+                       value="{{ user.educations }}"
+                       type="text"
+                       id="educations"
+                       name="educations" required>
+            </div>
+        </div>
+        <p>
+            <button class="custom-green-button" type="submit" value="Edit_Profile">Save</button>
+        </p>
+        <p>
+            <a class="custom-green-button" href="/user">Cancel</a>
+        </p>
+    </form>
+</div>
+{% endblock %}

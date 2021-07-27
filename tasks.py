@@ -31,6 +31,6 @@ def collect_static_element(ctx):
 
 @task
 def run(ctx):
-    init_db(ctx, recreate_db=False)
+    init_db(ctx, recreate_db=True)
     collect_static_element(ctx)
     ctx.run('python manage.py runserver 0.0.0.0:9000')

@@ -1,13 +1,25 @@
 {% extends 'blog/base.html' %}
-
 {% block content %}
     {% for post in posts %}
         <div class="post">
             <div class="date">
+                <h6 >Publication Date: </h6>
                 {{ post.published_date }}
             </div>
+
+            <div class="author">
+                <h4 >Blogger: </h4>
+                {{ post.author }}
+            </div>
+
             <h1><a href="">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
+            <div class="post_likes">
+                <button class="custom-green-button" type="submit">❤</button>
+                {{ post.post_likes }}
+            </div>
+
+            </div>
         </div>
     {% endfor %}
 {% endblock %}

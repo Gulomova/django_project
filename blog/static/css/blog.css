@@ -2,6 +2,7 @@
     background-color: #ff9400;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
+    display: flex;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
@@ -12,6 +13,7 @@
 
 .content {
     margin-left: 40px;
+
 }
 
 h1, h2, h3, h4 {
@@ -47,12 +49,57 @@ h1, h2, h3, h4 {
 }
 
 .registration-form {
-  color: #fff; /* цвет текста */
-  text-decoration: none; /* убирать подчёркивание у ссылок */
-  user-select: none; /* убирать выделение текста */
-  background: rgb(212,75,56); /* фон кнопки */
-  padding: .7em 1.5em; /* отступ от текста */
-  outline: none; /* убирать контур в Mozilla */
+    color: #fff; /* цвет текста */
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    background: rgb(212, 75, 56); /* фон кнопки */
+    padding: .7em 1.5em; /* отступ от текста */
+    outline: none; /* убирать контур в Mozilla */
 }
-.registration-form:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
-.registration-form:active { background: rgb(152,15,0); } /* при нажатии */
+
+.registration-form:hover {
+    background: rgb(232, 95, 76);
+
+}
+
+/* при наведении курсора мышки */
+.registration-form:active {
+    background: rgb(152, 15, 0);
+}
+
+.title-text {
+    width: 80%;
+}
+
+.custom-button {
+    height: 30px;
+    background: #44c767 linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+    border-radius: 28px;
+    border: 1px solid #65a86c;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial, serif;
+    font-size: 17px;
+    padding: 3px 10px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+    width: 120px;
+    margin: 3px;
+}
+.custom-button:hover {
+    background: #5cbf2a linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+}
+.custom-button:active {
+	position:relative;
+	top:1px;
+}
+.button-section {
+    display: flex;
+    width: 20%;
+    align-items: center;
+}
+
+.button-group {
+    padding-top: 10px;
+}

@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'user',
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
@@ -131,3 +134,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# User model
+AUTH_USER_MODEL = 'user.User'
